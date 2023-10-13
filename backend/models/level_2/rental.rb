@@ -20,7 +20,7 @@ module Level2
 
     def time_fare
       (1..duration_in_days).sum do |day|
-        (car.price_per_day - car.price_per_day * discount(day)).to_i
+        (car.price_per_day * (1 - discount(day))).to_i
       end
     end
 
