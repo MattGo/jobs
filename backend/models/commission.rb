@@ -1,3 +1,5 @@
+require_relative 'action'
+
 class Commission
 
   def initialize(total_price, duration_in_days)
@@ -10,7 +12,9 @@ class Commission
     { insurance_fee: insurance_fee, assistance_fee: assistance_fee, drivy_fee: drivy_fee }
   end
 
-  private
+  def owner_revenue
+    @total_price - @total_commission
+  end
 
   def insurance_fee
     @total_commission / 2
