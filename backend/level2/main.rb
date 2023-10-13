@@ -15,7 +15,7 @@ def compute_rental_fares
   }
 
   _rentals = data_json[:rentals].map { |rental_attrs|
-    rental     = Level2::Rental.new(*rental_attrs.values_at(*Rental.members))
+    rental     = Level2::Rental.new(*rental_attrs.values_at(*Level2::Rental.members))
     rental.car = cars.select { |c| c.id == rental.car_id }.first
     rental.output
   }
